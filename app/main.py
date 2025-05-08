@@ -1,12 +1,11 @@
 import os
 import requests
-from typing import Optional
 
 
 BASE_URL = "http://api.weatherapi.com/v1/current.json"
 
 
-def get_weather(city: str = "Paris") -> Optional[None]:
+def get_weather(city: str = "Paris") -> None:
     api_key = os.getenv("API_KEY")
     if not api_key:
         raise ValueError("API_KEY environment variable is not set")
