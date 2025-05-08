@@ -3,7 +3,8 @@ import requests
 
 BASE_URL = "http://api.weatherapi.com/v1/current.json"
 
-def get_weather(city="Paris"):
+
+def get_weather(city: str = "Paris") -> None:
     api_key = os.getenv("API_KEY")
     if not api_key:
         raise ValueError("API_KEY environment variable is not set")
@@ -18,7 +19,11 @@ def get_weather(city="Paris"):
     condition = data["current"]["condition"]["text"]
     localtime = data["location"]["localtime"]
 
-    print(f"{location}/{country} {localtime} Weather: {temp_c} Celsius, {condition}")
+    print(
+        f"{location}/{country} {localtime} "
+        f"Weather: {temp_c} Celsius, {condition}"
+    )
+
 
 if __name__ == "__main__":
     get_weather()
